@@ -1,0 +1,17 @@
+﻿Auto-merging backend/main.py
+CONFLICT (add/add): Merge conflict in backend/main.py
+Auto-merging backend/requirements.txt
+CONFLICT (add/add): Merge conflict in backend/requirements.txt
+Auto-merging backend/services/video_service.py
+CONFLICT (add/add): Merge conflict in backend/services/video_service.py
+Auto-merging frontend/src/components/Analytics/CandidateReport.tsx
+CONFLICT (add/add): Merge conflict in frontend/src/components/Analytics/CandidateReport.tsx
+Auto-merging frontend/src/components/Layout/Layout.tsx
+CONFLICT (add/add): Merge conflict in frontend/src/components/Layout/Layout.tsx
+Auto-merging frontend/src/index.css
+CONFLICT (add/add): Merge conflict in frontend/src/index.css
+Auto-merging frontend/src/pages/AnalyticsPage.tsx
+CONFLICT (add/add): Merge conflict in frontend/src/pages/AnalyticsPage.tsx
+Auto-merging frontend/src/pages/InterviewPage.tsx
+CONFLICT (add/add): Merge conflict in frontend/src/pages/InterviewPage.tsx
+Automatic merge failed; fix conflicts and then commit the result.

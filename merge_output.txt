@@ -1,0 +1,17 @@
+﻿git : fatal: refusing to 
+merge unrelated histories
+At line:1 char:1
++ git merge origin/main 
+--no-edit 2>&1 | Out-File 
+-Encoding utf8 D:\fin ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (f  
+  atal: refusing...late   
+ d histories:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 

@@ -1,0 +1,167 @@
+﻿diff --git a/frontend/src/index.css b/frontend/src/index.css
+index 1fe311a..e61b3c1 100644
+--- a/frontend/src/index.css
++++ b/frontend/src/index.css
+@@ -86,7 +86,7 @@
+ /* Firefox scrollbar support */
+ .chat-scroll {
+   scrollbar-width: thin;
+-  scrollbar-color: #2ecc71 rgba(255, 255, 255, 0.05);
++  scrollbar-color: #2ecc71 rgba(255,255,255,0.05);
+ }
+ 
+ @keyframes waveform {
+@@ -102,112 +102,48 @@
+   animation: waveform 0.8s ease-in-out infinite;
+ }
+ 
+-/* ========== RIPIS DASHBOARD ΓÇö Antigravity Modern ========== */
+-
+-/* Noise grain texture overlay */
+-.ripis-noise::before {
+-  content: "";
+-  position: absolute;
+-  inset: 0;
+-  opacity: 0.03;
+-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+-  background-repeat: repeat;
+-  background-size: 256px 256px;
+-  pointer-events: none;
+-  z-index: 1;
+-  border-radius: inherit;
+-}
+-
+-/* Glassmorphism 2.0 card */
+-.ripis-card {
+-  background: rgba(2, 6, 23, 0.6);
+-  backdrop-filter: blur(24px);
+-  -webkit-backdrop-filter: blur(24px);
+-  border: 0.5px solid rgba(0, 229, 255, 0.12);
+-  border-radius: 24px;
+-  position: relative;
+-  overflow: hidden;
+-  transition:
+-    border-color 0.3s ease,
+-    box-shadow 0.3s ease;
+-}
+-.ripis-card:hover {
+-  border-color: rgba(0, 229, 255, 0.25);
+-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.06);
+-}
+-
+-/* Neon glow keyframes */
+-@keyframes neon-pulse {
+-  0%,
+-  100% {
+-    opacity: 0.6;
+-  }
+-  50% {
+-    opacity: 1;
+-  }
+-}
+-@keyframes ring-fill {
+-  from {
+-    stroke-dashoffset: var(--ring-circumference);
+-  }
+-  to {
+-    stroke-dashoffset: var(--ring-offset);
+-  }
+-}
+-@keyframes float-in {
+-  from {
+-    opacity: 0;
+-    transform: translateY(16px) scale(0.97);
+-  }
+-  to {
+-    opacity: 1;
+-    transform: translateY(0) scale(1);
+-  }
+-}
+-
+-.animate-neon-pulse {
+-  animation: neon-pulse 2s ease-in-out infinite;
+-}
+-.animate-float-in {
+-  animation: float-in 0.6s ease-out forwards;
+-}
+-
+-/* Fluid typography using clamp */
+-.ripis-title {
+-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+-  font-weight: 700;
+-  letter-spacing: -0.02em;
+-}
+-.ripis-label {
+-  font-size: clamp(0.65rem, 1vw, 0.8rem);
+-  font-weight: 500;
+-  text-transform: uppercase;
+-  letter-spacing: 0.08em;
+-}
+-.ripis-metric {
+-  font-size: clamp(2rem, 4vw, 3.5rem);
+-  font-weight: 800;
+-  line-height: 1;
+-}
+-
+-/* Bento Grid responsive */
+-.ripis-bento {
+-  display: grid;
+-  gap: 16px;
+-  grid-template-columns: 1fr;
+-}
+-@media (min-width: 768px) {
+-  .ripis-bento {
+-    grid-template-columns: repeat(2, 1fr);
+-  }
++/* ΓöÇΓöÇ Badge Pill Styles ΓöÇΓöÇ */
++.badge-pill {
++  display: inline-flex;
++  align-items: center;
++  gap: 6px;
++  padding: 4px 12px 4px 8px;
++  border-radius: 9999px;
++  font-size: 0.8rem;
++  font-weight: 600;
++  line-height: 1.4;
++  white-space: nowrap;
++  user-select: none;
++  transition: transform 0.15s ease, box-shadow 0.15s ease;
++  /* Light mode defaults */
++  background: color-mix(in srgb, var(--badge-color) 12%, #ffffff);
++  border: 1px solid color-mix(in srgb, var(--badge-color) 25%, transparent);
++  color: color-mix(in srgb, var(--badge-color) 85%, #1a1a1a);
++}
++.badge-pill:hover {
++  transform: scale(1.05);
++  box-shadow: 0 2px 8px color-mix(in srgb, var(--badge-color) 20%, transparent);
++}
++.badge-dot {
++  width: 8px;
++  height: 8px;
++  border-radius: 50%;
++  flex-shrink: 0;
++  background: var(--badge-color);
++  box-shadow: 0 0 4px color-mix(in srgb, var(--badge-color) 50%, transparent);
+ }
+-@media (min-width: 1024px) {
+-  .ripis-bento {
+-    grid-template-columns: repeat(3, 1fr);
+-  }
++.badge-label {
++  letter-spacing: 0.01em;
+ }
+ 
+-/* Score ring gradient */
+-.ring-cyan-gradient {
+-  stroke: url(#cyan-gradient);
++/* Dark mode overrides */
++:root .badge-pill {
++  background: color-mix(in srgb, var(--badge-color) 15%, #111111);
++  border-color: color-mix(in srgb, var(--badge-color) 30%, transparent);
++  color: color-mix(in srgb, var(--badge-color) 60%, #ffffff);
++}
++.light .badge-pill {
++  background: color-mix(in srgb, var(--badge-color) 12%, #ffffff);
++  border-color: color-mix(in srgb, var(--badge-color) 25%, transparent);
++  color: color-mix(in srgb, var(--badge-color) 85%, #1a1a1a);
+ }

@@ -1,0 +1,75 @@
+﻿diff --git a/backend/main.py b/backend/main.py
+index d67c90c..b265a44 100644
+--- a/backend/main.py
++++ b/backend/main.py
+@@ -598,70 +598,6 @@ async def get_comparison(user_id: str, job_role: str):
+         raise HTTPException(status_code=404, detail="No data available")
+     return comparison
+ 
+-
+-@app.get("/api/analytics/timeline")
+-async def get_analytics_timeline():
+-    """Returns time-series data for charts"""
+-    metrics = session_data["video_metrics"]
+-    return {
+-        "timeline": [
+-            {
+-                "timestamp": m["timestamp"],
+-                "focus": m["focus"],
+-                "emotion": m["emotion"],
+-                "confidence": m["confidence"]
+-            }
+-            for m in metrics
+-        ]
+-    }
+-
+-@app.post("/api/analytics/feedback")
+-async def generate_analytics_feedback():
+-    """Generate AI-powered feedback based on session data"""
+-    metrics = session_data["video_metrics"]
+-    transcript = session_data["transcript"]
+-    
+-    # Calculate summary stats
+-    if metrics:
+-        avg_focus = sum(m["focus"] for m in metrics) / len(metrics)
+-        avg_emotion = sum(m["emotion"] for m in metrics) / len(metrics)
+-        avg_confidence = sum(m["confidence"] for m in metrics) / len(metrics)
+-    else:
+-        avg_focus = avg_emotion = avg_confidence = 50
+-    
+-    # Generate strengths based on metrics
+-    strengths = []
+-    if avg_focus >= 70:
+-        strengths.append("Excellent eye contact maintained throughout the interview")
+-    if avg_emotion >= 60:
+-        strengths.append("Good emotional expression and engagement")
+-    if avg_confidence >= 70:
+-        strengths.append("Displayed strong confidence in responses")
+-    if len(transcript) >= 6:
+-        strengths.append("Active participation with thorough responses")
+-    
+-    if not strengths:
+-        strengths.append("Completed the interview session")
+-    
+-    # Generate improvements based on metrics
+-    improvements = []
+-    if avg_focus < 70:
+-        improvements.append("Work on maintaining consistent eye contact with the camera")
+-    if avg_emotion < 60:
+-        improvements.append("Try to show more enthusiasm and expressiveness")
+-    if avg_confidence < 70:
+-        improvements.append("Practice to build more visible confidence in responses")
+-    if len(transcript) < 6:
+-        improvements.append("Provide more detailed answers to demonstrate depth of knowledge")
+-    
+-    if not improvements:
+-        improvements.append("Continue practicing to maintain your excellent performance")
+-    
+-    return {
+-        "strengths": strengths,
+-        "improvements": improvements
+-    }
+-
+ from services.report_generator import generate_report
+ 
+ @app.get("/api/session/weakness-analysis")

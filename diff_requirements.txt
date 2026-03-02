@@ -1,0 +1,14 @@
+﻿diff --git a/backend/requirements.txt b/backend/requirements.txt
+index cce3b82..4ba4bc2 100644
+--- a/backend/requirements.txt
++++ b/backend/requirements.txt
+@@ -1,8 +1,7 @@
+ fastapi
+ uvicorn[standard]
+ openai
+-motor
+-pymongo
++
+ PyPDF2
+ python-dotenv
+ python-multipart
