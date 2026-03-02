@@ -1,15 +1,10 @@
 // API Configuration for HireByte
-// Automatically detects the correct backend URL based on how the frontend is accessed
+// Automatically detects the correct backend URL based on environment variables
+const API_BASE_URL = import.meta.env.VITE_API_URL || `http://127.0.0.1:9000`;
 
-// Get the current hostname (works for both localhost and network IP)
-// Hardcoded to localhost for debugging
-// Force 127.0.0.1 if localhost to avoid IPv6 resolution issues on Windows
-const currentHost = window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname;
-const API_BASE_URL = `http://${currentHost}:9000`;
-
-console.log('HireByte API Config (Hardcoded):', {
+console.log('HireByte API Config:', {
   apiUrl: API_BASE_URL,
-  originalEnvVar: import.meta.env.VITE_API_URL
+  mode: import.meta.env.MODE
 });
 
 export const API_ENDPOINTS = {
